@@ -1,0 +1,41 @@
+<template>
+  <div class="container-fluid">
+    <div v-if="user.loggedIn === false">
+      <Login />
+    </div>
+    <div v-if="user.loggedIn === true">
+      <div class="row">
+        <Sidebar />
+        <div class="col-sm-10">
+          <router-view></router-view>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { auth } from "../firebase";
+import Login from "@/components/Login.vue";
+import Sidebar from "@/components/Sidebar.vue";
+import { mapGetters } from "vuex";
+export default {
+  name: "Dash",
+  computed: {
+    ...mapGetters({ user: "user" }),
+  },
+  methods: {
+    async Logout() {
+      auth.signOut().then(() => {
+        this.$store.dispatch("changeAuth");
+      });
+    },
+  },
+  components: {
+    Login,
+    Sidebar,
+  },
+};
+</script>
+
+<style scoped></style>
