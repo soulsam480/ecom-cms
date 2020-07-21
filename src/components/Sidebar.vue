@@ -1,26 +1,35 @@
 <template>
   <div class="col-sm-2">
-    <div class="sidebar">
-      <a
+    <ul class="sidebar">
+      <li
+        class="resnav"
+        :class="{ act: sideBar === 'home' }"
+        @click="changeSide('home')"
+      >
+        <router-link to="/dash">Home</router-link>
+      </li>
+      <li
         class="resnav"
         :class="{ act: sideBar === 'product' }"
         @click="changeSide('product')"
       >
-        <router-link to="/product">Product</router-link>
-      </a>
-      <a
+        <router-link to="/dash/product">Product</router-link>
+      </li>
+      <li
         class="resnav"
         :class="{ act: sideBar === 'categories' }"
         @click="changeSide('categories')"
-        >Categories</a
       >
-      <a
+        Categories
+      </li>
+      <li
         class="resnav"
         :class="{ act: sideBar === 'media' }"
         @click="changeSide('media')"
-        >Media</a
       >
-    </div>
+        Media
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -40,39 +49,41 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.col-sm-2 {
+  padding-left: 0 !important;
+  padding-right: 0 !important ;
+}
 @media only screen and (max-width: 768px) {
   .sidebar {
-    flex-direction: row;
+    display: none !important ;
   }
 }
+
 .sidebar {
-  position: sticky !important;
-  top: 80px !important;
-  height: auto;
-  background-color: #ffebee;
+  height: 100vh;
+  background-color: #393e46;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.sidebar a {
-  cursor: pointer;
-  width: 100%;
-  padding: 10px 16px;
-  text-decoration: none;
-  font-size: 20px;
-}
-.sidebar a a {
-  cursor: pointer;
-  width: 100%;
-  padding: 10px 16px;
-  text-decoration: none;
-  font-size: 20px;
-}
-.sidebar a:hover {
-  background-color: #fddde2;
-}
-.sidebar a.act {
-  background-color: #fddde2;
+  list-style-type: none;
+  padding-inline-start: 0;
+  li {
+    cursor: pointer;
+    width: 100%;
+    padding: 10px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    a {
+      display: block;
+      color: white;
+    }
+  }
+  li:hover {
+    background-color: #484d55;
+  }
+  .act {
+    background-color: #484d55;
+  }
 }
 </style>

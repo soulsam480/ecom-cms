@@ -1,0 +1,36 @@
+//variables go here
+
+$bg-primary: #232931;
+$bg-seconday: #393e46;
+$bg-seconday-light: #474c55;
+$primary: #ffffff;
+$secondary: #4ecca3;
+
+//styles go here
+:root,
+#app {
+  background-color: #232931;
+  color: white;
+}
+a {
+  color: unset;
+  text-decoration: none !important;
+  &:hover {
+    color: unset;
+    text-decoration: none;
+  }
+}
+
+.e-btn {
+  background: $bg-seconday;
+  border-radius: 2px;
+  font-size: 14px;
+  border: none;
+  padding: 7px 20px;
+  margin: 5px;
+  color: $secondary;
+  &:hover {
+    color: $secondary;
+    background-color: $bg-seconday-light;
+  }
+}

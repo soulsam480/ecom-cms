@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import "./styles/default.scss";
 export default {
   beforeCreate() {
     this.$store.dispatch("addData");
@@ -13,12 +14,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-a {
-  color: black !important;
-  text-decoration: none !important;
-}
-:hover {
-  text-decoration: none;
-}
-</style>
+<style lang="scss"></style>

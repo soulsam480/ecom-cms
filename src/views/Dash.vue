@@ -1,8 +1,5 @@
 <template>
   <div class="container-fluid">
-    <div v-if="user.loggedIn === false">
-      <Login />
-    </div>
     <div v-if="user.loggedIn === true">
       <div class="row">
         <Sidebar />
@@ -11,12 +8,14 @@
         </div>
       </div>
     </div>
+    <div v-else class="text-center">
+      <h4>Please Log In to continue</h4>
+    </div>
   </div>
 </template>
 
 <script>
 import { auth } from "../firebase";
-import Login from "@/components/Login.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import { mapGetters } from "vuex";
 export default {
@@ -32,7 +31,6 @@ export default {
     },
   },
   components: {
-    Login,
     Sidebar,
   },
 };
