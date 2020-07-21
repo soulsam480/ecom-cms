@@ -1,32 +1,27 @@
 <template>
   <div class="col-sm-2">
     <ul class="sidebar">
-      <li
-        class="resnav"
-        :class="{ act: sideBar === 'home' }"
-        @click="changeSide('home')"
-      >
+      <li>
+        <h5>Admin: {{ user.data.displayName.split(" ")[0] }}</h5>
+        <button @click="logOut" class="e-btn-danger">Logout</button>
+        <hr style="background-color:#4ecca3" />
+      </li>
+      <li :class="{ act: sideBar === 'home' }" @click="changeSide('home')">
         <router-link to="/dash">Home</router-link>
       </li>
       <li
-        class="resnav"
         :class="{ act: sideBar === 'product' }"
         @click="changeSide('product')"
       >
         <router-link to="/dash/product">Product</router-link>
       </li>
       <li
-        class="resnav"
         :class="{ act: sideBar === 'categories' }"
         @click="changeSide('categories')"
       >
         Categories
       </li>
-      <li
-        class="resnav"
-        :class="{ act: sideBar === 'media' }"
-        @click="changeSide('media')"
-      >
+      <li :class="{ act: sideBar === 'media' }" @click="changeSide('media')">
         Media
       </li>
     </ul>
@@ -34,6 +29,9 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import { auth } from "../firebase";
+import router from "../router";
 export default {
   name: "Sidebar",
   data() {
@@ -41,9 +39,17 @@ export default {
       sideBar: "",
     };
   },
+  computed: {
+    ...mapGetters({ user: "user" }),
+  },
   methods: {
     changeSide(data) {
       this.sideBar = data;
+    },
+    async logOut() {
+      await auth.signOut().then(() => {
+        router.replace({ path: "/" });
+      });
     },
   },
 };
@@ -68,13 +74,14 @@ export default {
   align-items: center;
   list-style-type: none;
   padding-inline-start: 0;
+  margin-bottom: 0;
   li {
-    cursor: pointer;
     width: 100%;
     padding: 10px 16px;
     text-decoration: none;
     font-size: 17px;
     a {
+      cursor: pointer;
       display: block;
       color: white;
     }

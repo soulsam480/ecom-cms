@@ -3,7 +3,12 @@
     <div v-if="user.loggedIn === true">
       <div class="row">
         <Sidebar />
-        <div class="col-sm-10">
+        <div class="col-sm-10 view">
+          <div v-if="this.$route.path === '/dash'">
+            <p>
+              wedwfedw
+            </p>
+          </div>
           <router-view></router-view>
         </div>
       </div>
@@ -36,4 +41,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.col-sm-10 {
+  padding-top: 15px;
+}
+</style>

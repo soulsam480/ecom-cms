@@ -52,7 +52,7 @@ export default new Vuex.Store({
     },
   },
   getters: {
-    getProducts: (state) => {
+    getProducts: state => {
       return state.products;
     },
     getAuth(state) {

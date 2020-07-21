@@ -5,12 +5,20 @@ $bg-seconday: #393e46;
 $bg-seconday-light: #474c55;
 $primary: #ffffff;
 $secondary: #4ecca3;
-
+$bg-danger: #c90909;
+$bg-danger-light: #dd1414;
+//fonts
+@font-face {
+  font-family: Function Regular;
+  src: url(~@/assets/functionregular.ttf);
+}
 //styles go here
 :root,
 #app {
   background-color: #232931;
   color: white;
+  line-height: normal;
+  font-family: Function Regular;
 }
 a {
   color: unset;
@@ -29,8 +37,55 @@ a {
   padding: 7px 20px;
   margin: 5px;
   color: $secondary;
+  display: inline-block;
   &:hover {
     color: $secondary;
     background-color: $bg-seconday-light;
+  }
+  &:focus {
+    outline: none;
+  }
+  &:not([href]) {
+    cursor: pointer;
+    color: $secondary;
+    text-decoration: none;
+  }
+  &:not([href]):hover {
+    color: $secondary;
+    text-decoration: none;
+  }
+}
+.e-btn-danger {
+  background: $bg-danger;
+  border-radius: 2px;
+  border: none;
+  padding: 7px 10px;
+  margin: 5px;
+  color: $primary;
+  display: inline-block;
+  &:hover {
+    color: $primary;
+    background-color: $bg-danger-light;
+  }
+  &:focus {
+    outline: none;
+  }
+  &:not([href]) {
+    cursor: pointer;
+    color: $primary;
+    text-decoration: none;
+  }
+  &:not([href]):hover {
+    color: $primary;
+    text-decoration: none;
+  }
+}
+
+.attention{
+  &::before{
+    content: "";
+    padding: 0.5px 30px;
+    background-color: $secondary;
+    position: absolute;
   }
 }

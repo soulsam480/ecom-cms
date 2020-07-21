@@ -51,14 +51,11 @@
             <div class="col-xs-7  m-2">
               <h4>{{ user.data.displayName }}</h4>
               <h6>{{ user.data.email }}</h6>
-              <button class="btn btn-outline-danger btn-sm" @click="logOut()">
-                Logout
-              </button>
+              <button @click="Logout" class="e-btn-danger">Log Out</button>
             </div>
           </div>
-          <div class="row">
-             <router-link class="e-btn" to="/dash"> Dashboard</router-link>
-          </div>
+          <br />
+          <router-link class="e-btn" to="/dash"> Dashboard</router-link>
         </div>
       </div>
     </div>
@@ -93,8 +90,7 @@ export default {
           this.authId = "";
           this.authPass = "";
           if (this.user.data.userId === this.cred.uid) {
-            this.$store.dispatch("changeAuth");
-            router.replace({ name: "Dash" });
+            router.replace({ path: "/dash" });
           } else {
             auth.signOut().then(() => {
               this.authId = "";
