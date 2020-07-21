@@ -2,9 +2,11 @@
   <div class="col-sm-2">
     <ul class="sidebar">
       <li>
-        <h5>Admin: {{ user.data.displayName.split(" ")[0] }}</h5>
-        <button @click="logOut" class="e-btn-danger">Logout</button>
-        <hr style="background-color:#4ecca3" />
+        <a>
+          <h5>Admin: {{ user.data.displayName.split(" ")[0] }}</h5>
+          <button @click="logOut" class="e-btn-danger">Logout</button>
+          <hr style="background-color:#4ecca3" />
+        </a>
       </li>
       <li :class="{ act: sideBar === 'home' }" @click="changeSide('home')">
         <router-link to="/dash">Home</router-link>
@@ -19,10 +21,10 @@
         :class="{ act: sideBar === 'categories' }"
         @click="changeSide('categories')"
       >
-        Categories
+        <a>Categories</a>
       </li>
       <li :class="{ act: sideBar === 'media' }" @click="changeSide('media')">
-        Media
+        <a> Media</a>
       </li>
     </ul>
   </div>
@@ -67,7 +69,9 @@ export default {
 }
 
 .sidebar {
-  height: 100vh;
+  position: sticky !important;
+  top: 0px !important;
+  height: auto;
   background-color: #393e46;
   display: flex;
   flex-direction: column;
@@ -77,11 +81,12 @@ export default {
   margin-bottom: 0;
   li {
     width: 100%;
-    padding: 10px 16px;
+
     text-decoration: none;
     font-size: 17px;
     a {
       cursor: pointer;
+      padding: 10px 16px;
       display: block;
       color: white;
     }

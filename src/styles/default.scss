@@ -7,11 +7,13 @@ $primary: #ffffff;
 $secondary: #4ecca3;
 $bg-danger: #c90909;
 $bg-danger-light: #dd1414;
+
 //fonts
 @font-face {
   font-family: Function Regular;
   src: url(~@/assets/functionregular.ttf);
 }
+
 //styles go here
 :root,
 #app {
@@ -19,6 +21,11 @@ $bg-danger-light: #dd1414;
   color: white;
   line-height: normal;
   font-family: Function Regular;
+  /*  -ms-overflow-style: none; 
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  } */
 }
 a {
   color: unset;
@@ -32,9 +39,8 @@ a {
 .e-btn {
   background: $bg-seconday;
   border-radius: 2px;
-  font-size: 14px;
   border: none;
-  padding: 7px 20px;
+  padding: 10px 20px;
   margin: 5px;
   color: $secondary;
   display: inline-block;
@@ -81,11 +87,28 @@ a {
   }
 }
 
-.attention{
-  &::before{
+.attention {
+  &::before {
     content: "";
     padding: 0.5px 30px;
     background-color: $secondary;
     position: absolute;
+  }
+}
+input[type="text"] {
+  background-color: $bg-seconday;
+  border: none;
+  color: white;
+  &:focus {
+    background-color: $bg-seconday;
+    outline: none !important;
+    box-shadow: none;
+    color: white;
+  }
+}
+.card {
+  background-color: $bg-seconday !important;
+  .e-btn {
+    padding: 4px 10px;
   }
 }
