@@ -21,3 +21,5 @@ pnpm-debug.log*
 *.sln
 *.sw?
 src/firebase/cred.js
+deploy.sh
+.ssh
