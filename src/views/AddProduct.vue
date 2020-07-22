@@ -264,12 +264,10 @@
           />
         </div>
         <br />
-        <button class="e-btn" @click="addData()" :disabled="onPostEdit">
+        <button class="e-btn" @click="addData()">
           Commit Product
         </button>
-        <button class="e-btn" @click="cancel()" :hidden="!onPostEdit">
-          Cancel
-        </button>
+
         <br />
         <br />
       </div>
@@ -287,7 +285,7 @@ export default {
   components: {
     editor: Editor,
   },
-  props: ["products", "id"],
+  props: [],
   data() {
     return {
       a: "",
@@ -305,12 +303,25 @@ export default {
         hideModeSwitch: true,
       },
       postBody: "",
-      onPostEdit: false,
-      sideBar: "product",
       tags: "",
     };
   },
+  computed: {},
+
   methods: {
+    /*     editPost() {
+      console.log(this.editId);
+      (this.a = main.name),
+        (this.c = main.price),
+        (this.checkedSizes = main.sizes),
+        (this.checkedColors = main.colors),
+        (this.checkedCats = main.cats),
+        (this.picture = main.imgUrls),
+        (this.shortDes = main.shortDes);
+      this.tags = main.tags.join();
+      this.$refs.toastuiEditor.invoke("setHtml", `${main.desc}`);
+      const main = this.products.find((el) => el.id === this.editId);
+    }, */
     previewImage(event) {
       this.b =
         Math.random()

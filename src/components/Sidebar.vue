@@ -3,8 +3,12 @@
     <ul class="sidebar">
       <li>
         <a>
-          <h5>Admin: {{ user.data.displayName.split(" ")[0] }}</h5>
-          <button @click="logOut" class="e-btn-danger">Logout</button>
+          <h5 class="d-inline">
+            Admin: {{ user.data.displayName.split(" ")[0] }}
+          </h5>
+          <div class="d-inline">
+            <button @click="logOut" class="e-btn-danger">Logout</button>
+          </div>
           <hr style="background-color:#4ecca3" />
         </a>
       </li>

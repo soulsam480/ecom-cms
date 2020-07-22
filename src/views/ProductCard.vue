@@ -1,14 +1,20 @@
 <template>
   <div>
+    <h5>Manage Existing Products</h5>
+    <span class="attention"></span>
+    <br />
     <div class="row">
       <div class="col-sm-2 p-1" v-for="item in products" :key="item.id">
         <div class="card">
           <p class="card-header">{{ item.name }}</p>
           <div class="card-body p-1">
             <div>
-              <button class="e-btn" @click="editPost(item.id)">
+              <router-link
+                class="e-btn"
+                :to="{ name: 'Edit', params: { id: item.id } }"
+              >
                 Edit
-              </button>
+              </router-link>
               <button class="e-btn" @click="removeProduct(item.id)">
                 Remove
               </button>
@@ -28,9 +34,16 @@
 
 <script>
 import { db, storageref } from "../firebase";
+import { mapGetters } from "vuex";
 export default {
   name: "AllProducts",
-  props: ["products"],
+  props: [],
+  data() {
+    return {};
+  },
+  computed: {
+    ...mapGetters({ products: "getProducts" }),
+  },
   methods: {
     removeProduct(id) {
       db.ref(`/Products/${id}`)
@@ -44,20 +57,6 @@ export default {
               window.alert("Product deleted successfully!");
             });
         });
-    },
-    editPost(id) {
-      this.addProd = true;
-      this.onPostEdit = true;
-      var main = this.$store.getters.getProducts.find((el) => el.id === id);
-      (this.a = main.name),
-        (this.c = main.price),
-        (this.checkedSizes = main.sizes),
-        (this.checkedColors = main.colors),
-        (this.checkedCats = main.cats),
-        (this.picture = main.imgUrls),
-        (this.shortDes = main.shortDes);
-      this.tags = main.tags.join();
-      this.$refs.toastuiEditor.invoke("setHtml", `${main.desc}`);
     },
   },
 };

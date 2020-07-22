@@ -21,6 +21,24 @@ const routes = [
         path: "product",
         name: "Product",
         component: () => import("../views/Product.vue"),
+        children: [
+          {
+            path: "add",
+            name: "Add",
+            component: () => import("../views/AddProduct.vue"),
+          },
+          {
+            path: "edit/:id",
+            name: "Edit",
+            component: () => import("../views/Edit.vue"),
+          },
+          {
+            path: "/",
+            name: "All",
+            component: () => import("../views/ProductCard.vue"),
+            props: true,
+          },
+        ],
       },
     ],
     beforeEnter(to, from, next) {
