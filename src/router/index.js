@@ -47,6 +47,11 @@ const routes = [
           },
         ],
       },
+      {
+        path: "media",
+        name: "Media",
+        component: () => import("../views/Media.vue"),
+      },
     ],
     beforeEnter(to, from, next) {
       if (store.state.user.loggedIn === true) {
@@ -56,6 +61,7 @@ const routes = [
       }
     },
   },
+
   {
     path: "*",
     component: () => import("../views/404.vue"),

@@ -1,12 +1,13 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import { vuexfireMutations, firebaseAction } from "vuexfire";
-import { db } from "../firebase";
+import { db, storageref } from "../firebase";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     products: [],
+    media: [],
     user: {
       loggedIn: false,
       data: null,
@@ -27,8 +28,45 @@ export default new Vuex.Store({
     setUser(state, data) {
       state.user.data = data;
     },
+    getMedia(state) {
+      var listRef = storageref.ref("/Products");
+      listRef
+        .listAll()
+        .then((res) => {
+          res.prefixes.forEach((el) => {
+            var main = [];
+            let locFound = state.media.find((snap) => snap.includes(el.name));
+            if (!locFound) {
+              main.push(el.name);
+            }
+            el.listAll().then((resp) => {
+              resp.items.forEach((el) => {
+                var loc = main.findIndex(
+                  (obj) => obj === el.fullPath.split("/")[1]
+                );
+                el.getDownloadURL().then((url) => {
+                  loc = loc++;
+                  let urlFound = state.media.find((a) => a.includes(url));
+                  if (!urlFound) {
+                    main.splice(loc, 0, url);
+                  }
+                });
+              });
+              if (main[main.length - 1] !== " ") {
+                state.media.push(main);
+              }
+            });
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
   actions: {
+    addMedia: ({ commit }) => {
+      commit("getMedia");
+    },
     addData: firebaseAction(({ bindFirebaseRef }) => {
       return bindFirebaseRef("products", db.ref("/Products"));
     }),
@@ -52,7 +90,7 @@ export default new Vuex.Store({
     },
   },
   getters: {
-    getProducts: state => {
+    getProducts: (state) => {
       return state.products;
     },
     getAuth(state) {
@@ -63,6 +101,9 @@ export default new Vuex.Store({
     },
     user(state) {
       return state.user;
+    },
+    getMedia: (state) => {
+      return state.media;
     },
   },
   modules: {},

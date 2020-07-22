@@ -21,14 +21,14 @@
       >
         <router-link to="/dash/product">Product</router-link>
       </li>
+      <li :class="{ act: sideBar === 'media' }" @click="changeSide('media')">
+        <router-link to="/dash/media">Media</router-link>
+      </li>
       <li
         :class="{ act: sideBar === 'categories' }"
         @click="changeSide('categories')"
       >
         <a>Categories</a>
-      </li>
-      <li :class="{ act: sideBar === 'media' }" @click="changeSide('media')">
-        <a> Media</a>
       </li>
     </ul>
   </div>
