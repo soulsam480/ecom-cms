@@ -3,7 +3,14 @@ import VueRouter from "vue-router";
 import Dash from "../views/Dash.vue";
 import Login from "../views/Login.vue";
 import store from "../store";
-
+import NProgress from "f:/MY CODEBASE/ecom-test/node_modules/nprogress";
+NProgress.configure({
+  showSpinner: false,
+  trickleSpeed: 200,
+  easing: "ease",
+  speed: 500,
+});
+import "nprogress/nprogress.css";
 Vue.use(VueRouter);
 
 const routes = [
@@ -58,6 +65,24 @@ const routes = [
 
 const router = new VueRouter({
   routes,
+  // eslint-disable-next-line no-unused-vars
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    }
+    if (to.hash) {
+      return { selector: to.hash };
+    }
+    return { x: 0, y: 0 };
+  },
 });
-
+router.beforeEach((to, from, next) => {
+  NProgress.start();
+  NProgress.set(0.1);
+  NProgress.inc(0.2);
+  next();
+});
+router.afterEach(() => {
+  setTimeout(() => NProgress.done(), 2000);
+});
 export default router;

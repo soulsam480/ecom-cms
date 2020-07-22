@@ -21,11 +21,6 @@ $bg-danger-light: #e73434;
   color: white;
   line-height: normal;
   font-family: Function Regular;
-  /*  -ms-overflow-style: none; 
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  } */
 }
 a {
   color: unset;
@@ -95,7 +90,9 @@ a {
     position: absolute;
   }
 }
-input[type="text"] {
+input[type="text"],
+input[type="email"],
+input[type="password"] {
   background-color: $bg-seconday;
   border: none;
   color: white;

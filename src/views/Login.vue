@@ -1,12 +1,15 @@
 <template>
   <div class="login container">
     <br />
+    <h4 style="color:#4ecca3;" class="text-center">Admin Panel</h4>
+    <hr style="background-color:#4ecca3" />
     <!-- The Login section shows only when a user is not logged in-->
     <div v-if="user.loggedIn !== true">
       <div class="row d-flex justify-content-center">
         <div class="col-md-4">
-          <h4>Admin Login</h4>
-          <hr />
+          <h5>Login</h5>
+          <span class="attention"></span>
+          <br />
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input
@@ -14,10 +17,10 @@
               type="email"
               class="form-control"
               id="exampleInputEmail1"
-              aria-describedby="emailHelp"
               placeholder="Enter email"
+              autofocus
             />
-            <small id="emailHelp" class="form-text text-muted"
+            <small class="text-muted"
               >Hi Friend! Hacking is injurious to health. Don't try. Ok
               Bye.</small
             >
@@ -33,7 +36,7 @@
               v-on:keyup.enter="Auth"
             />
           </div>
-          <button class="btn btn-success" @click="Auth()">Login</button>
+          <button class="e-btn" @click="Auth()">Login</button>
         </div>
       </div>
     </div>
@@ -41,9 +44,6 @@
     <div v-else>
       <div class="row d-flex justify-content-center">
         <div class="col-md-4">
-          <div class="row">
-            <h4 style="color:#4ecca3;">Ecom-test Admin Panel</h4>
-          </div>
           <div class="row">
             <div class="col-xs-5 m-2">
               <img :src="user.data.imgUrl" class="u-img" alt="" />
@@ -55,7 +55,9 @@
             </div>
           </div>
           <br />
-          <router-link class="e-btn" to="/dash"> Dashboard</router-link>
+          <div class="text-center">
+            <router-link class="e-btn" to="/dash"> Go to Dashboard</router-link>
+          </div>
         </div>
       </div>
     </div>
@@ -90,7 +92,7 @@ export default {
           this.authId = "";
           this.authPass = "";
           if (this.user.data.userId === this.cred.uid) {
-            router.replace({ path: "/dash" });
+            router.replace({ name: "Dash" });
           } else {
             auth.signOut().then(() => {
               this.authId = "";
@@ -98,6 +100,9 @@ export default {
               window.alert("Bhag B*dk");
             });
           }
+        })
+        .catch((er) => {
+          window.alert(er);
         });
     },
   },
