@@ -1,7 +1,8 @@
 .DS_Store
 node_modules
 /dist
-
+deploy.sh
+.ssh
 # local env files
 .env.local
 .env.*.local
@@ -21,5 +22,3 @@ pnpm-debug.log*
 *.sln
 *.sw?
 src/firebase/cred.js
-deploy.sh
-.ssh
