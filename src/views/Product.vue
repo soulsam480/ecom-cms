@@ -13,22 +13,12 @@
     <hr style="background-color:#4ecca3" />
     <!--implementations-->
     <div>
-      <!--       :onPostEdit="onPostEdit"
- -->
-      <!--  <AddProduct :id="id" :products="products" v-if="task === 'add'" />
-      <ProductCard
-        v-on:edit-post="editPost"
-        :products="products"
-        v-if="task === 'manage'"
-      /> -->
       <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
-/* import AddProduct from "@/components/AddProduct.vue";
-import ProductCard from "@/components/ProductCard.vue"; */
 import { mapGetters } from "vuex";
 export default {
   name: "Product",
@@ -48,10 +38,7 @@ export default {
   computed: {
     ...mapGetters({ products: "getProducts" }),
   },
-  components: {
-    /*   AddProduct,
-    ProductCard, */
-  },
+  components: {},
 };
 </script>
 

@@ -5,9 +5,9 @@
         <Sidebar />
         <div class="col-sm-10 view">
           <div v-if="this.$route.path === '/dash'">
-            <p>
-              wedwfedw
-            </p>
+            <h4>Dashboard</h4>
+            <span class="attention"></span>
+            <br />
           </div>
           <router-view></router-view>
         </div>

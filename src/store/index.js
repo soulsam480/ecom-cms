@@ -41,18 +41,14 @@ export default new Vuex.Store({
             }
             el.listAll().then((resp) => {
               resp.items.forEach((el) => {
-                var loc = main.findIndex(
-                  (obj) => obj === el.fullPath.split("/")[1]
-                );
                 el.getDownloadURL().then((url) => {
-                  loc = loc++;
                   let urlFound = state.media.find((a) => a.includes(url));
                   if (!urlFound) {
-                    main.splice(loc, 0, url);
+                    main.push(url);
                   }
                 });
               });
-              if (main[main.length - 1] !== " ") {
+              if (main.length > 0) {
                 state.media.push(main);
               }
             });

@@ -9,6 +9,7 @@ import "./styles/default.scss";
 export default {
   beforeCreate() {
     this.$store.dispatch("addData");
+    this.$store.dispatch("addMedia");
   },
   components: {},
 };
