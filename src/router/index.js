@@ -2,8 +2,9 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Dash from "../views/Dash.vue";
 import Login from "../views/Login.vue";
-import store from "../store";
-import NProgress from "f:/MY CODEBASE/ecom-test/node_modules/nprogress";
+/* import store from "../store";
+ */ import NProgress from "f:/MY CODEBASE/ecom-test/node_modules/nprogress";
+import { auth } from "../firebase";
 NProgress.configure({
   showSpinner: false,
   trickleSpeed: 200,
@@ -53,8 +54,9 @@ const routes = [
         component: () => import("../views/Media.vue"),
       },
     ],
-    beforeEnter(to, from, next) {
-      if (store.state.user.loggedIn === true) {
+    async beforeEnter(to, from, next) {
+      let loggedIn = await auth.currentUser;
+      if (loggedIn) {
         next();
       } else {
         next({ path: "/" });

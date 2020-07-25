@@ -88,17 +88,16 @@ export default {
     async Auth() {
       await auth
         .signInWithEmailAndPassword(this.authId, this.authPass)
-        .then(() => {
-          this.authId = "";
-          this.authPass = "";
-          if (this.user.data.userId === this.cred.uid) {
-            router.replace({ name: "Dash" });
+        .then((res) => {
+          if (res.user.uid !== this.cred.uid) {
+            auth.signOut();
+            this.authId = "";
+            this.authPass = "";
+            window.alert("Bhag B*dk");
           } else {
-            auth.signOut().then(() => {
-              this.authId = "";
-              this.authPass = "";
-              window.alert("Bhag B*dk");
-            });
+            this.authId = "";
+            this.authPass = "";
+            router.replace({ name: "Dash" });
           }
         })
         .catch((er) => {
