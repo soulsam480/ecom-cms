@@ -2,8 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Dash from "../views/Dash.vue";
 import Login from "../views/Login.vue";
-/* import store from "../store";
- */ import NProgress from "f:/MY CODEBASE/ecom-test/node_modules/nprogress";
+import NProgress from "f:/MY CODEBASE/ecom-test/node_modules/nprogress";
 import { auth } from "../firebase";
 NProgress.configure({
   showSpinner: false,
@@ -63,7 +62,6 @@ const routes = [
       }
     },
   },
-
   {
     path: "*",
     component: () => import("../views/404.vue"),

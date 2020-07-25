@@ -90,9 +90,11 @@ export default {
         .signInWithEmailAndPassword(this.authId, this.authPass)
         .then((res) => {
           if (res.user.uid !== this.cred.uid) {
-            auth.signOut();
-            this.authId = "";
-            this.authPass = "";
+            auth.signOut().then(() => {
+              this.authId = "";
+              this.authPass = "";
+            });
+
             window.alert("Bhag B*dk");
           } else {
             this.authId = "";
