@@ -1,6 +1,8 @@
 <template>
   <div class="col-sm-2">
-    <ul class="sidebar">
+    <span class="ham" @click="openNav"> ☰</span>
+
+    <ul class="sidebar" ref="mNav">
       <li>
         <a>
           <h5 class="d-inline">
@@ -57,6 +59,9 @@ export default {
         router.replace({ path: "/" });
       });
     },
+    openNav() {
+      this.$refs.mNav.classList.toggle("act-nav");
+    },
   },
 };
 </script>
@@ -68,13 +73,32 @@ export default {
 }
 @media only screen and (max-width: 768px) {
   .sidebar {
-    display: none !important ;
+    padding-top: 50px;
+    right: 0 !important;
+    position: fixed !important;
+    z-index: 10000;
+    height: 100vh !important;
+    width: 0 !important;
+    transition: width 0.3s linear;
+  }
+  .ham {
+    display: block !important;
   }
 }
-
+.act-nav {
+  width: 80% !important;
+}
+.ham {
+  display: none;
+  top: 0px;
+  right: 10px;
+  position: fixed;
+  z-index: 121000;
+  font-size: 30px;
+}
 .sidebar {
-  position: sticky !important;
-  top: 0px !important;
+  position: sticky;
+  top: 0px;
   height: auto;
   background-color: #393e46;
   display: flex;
@@ -85,9 +109,9 @@ export default {
   margin-bottom: 0;
   li {
     width: 100%;
-
     text-decoration: none;
     font-size: 17px;
+    white-space: nowrap;
     a {
       cursor: pointer;
       padding: 10px 16px;
@@ -95,7 +119,7 @@ export default {
       color: white;
     }
   }
-  li:hover {
+  li a:hover {
     background-color: #484d55;
   }
   .act {
