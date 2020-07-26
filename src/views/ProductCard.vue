@@ -45,13 +45,18 @@ export default {
     ...mapGetters({ products: "getProducts" }),
   },
   methods: {
-    removeProduct(id) {
+    async removeProduct(id) {
       db.ref(`/Products/${id}`)
         .remove()
-        .then(() => {
-          storageref
+        .then(async () => {
+          await storageref
             .ref(`/Products/${id}`)
-            .delete()
+            .listAll()
+            .then((res) => {
+              res.items.forEach((el) => {
+                el.delete();
+              });
+            })
             .then(() => {
               this.$store.dispatch("addData");
               window.alert("Product deleted successfully!");

@@ -2,13 +2,11 @@
   <div class="col-sm-2">
     <span class="ham" @click="openNav"> ☰</span>
 
-    <ul class="sidebar" ref="mNav">
+    <ul class="sidebar" ref="mNav" @click="openNav">
       <li>
         <a>
-          <h5 class="d-inline">
-            Admin: {{ user.data.displayName.split(" ")[0] }}
-          </h5>
-          <div class="d-inline">
+          <h5>Admin: {{ user.data.displayName.split(" ")[0] }}</h5>
+          <div>
             <button @click="logOut" class="e-btn-danger">Logout</button>
           </div>
           <hr style="background-color:#4ecca3" />
@@ -21,7 +19,7 @@
         :class="{ act: sideBar === 'product' }"
         @click="changeSide('product')"
       >
-        <router-link to="/dash/product">Product</router-link>
+        <router-link to="/dash/product">Products</router-link>
       </li>
       <li :class="{ act: sideBar === 'media' }" @click="changeSide('media')">
         <router-link to="/dash/media">Media</router-link>
@@ -73,7 +71,8 @@ export default {
 }
 @media only screen and (max-width: 768px) {
   .sidebar {
-    padding-top: 50px;
+    /*     padding-top: 50px;
+ */
     right: 0 !important;
     position: fixed !important;
     z-index: 10000;
@@ -91,10 +90,13 @@ export default {
 .ham {
   display: none;
   top: 0px;
-  right: 10px;
+  right: 0px;
   position: fixed;
   z-index: 121000;
   font-size: 30px;
+  cursor: pointer;
+  padding: 0 10px 5px 10px;
+  background-color: #484d55;
 }
 .sidebar {
   position: sticky;

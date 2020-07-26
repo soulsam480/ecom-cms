@@ -5,8 +5,8 @@ $bg-seconday: #393e46;
 $bg-seconday-light: #474c55;
 $primary: #ffffff;
 $secondary: #4ecca3;
-$bg-danger: #c41515;
-$bg-danger-light: #da1a1a;
+$bg-danger: #da1a1a;
+$bg-danger-light: #cc1515;
 
 //fonts
 @font-face {
@@ -55,6 +55,14 @@ a {
     color: $secondary;
     text-decoration: none;
   }
+  &:disabled {
+    background-color: $bg-seconday-light;
+    cursor: not-allowed;
+  }
+}
+
+.e-btn-sm {
+  padding: 7px 10px;
 }
 .e-btn-danger {
   background: $bg-danger;
@@ -79,6 +87,10 @@ a {
   &:not([href]):hover {
     color: $primary;
     text-decoration: none;
+  }
+  &:disabled {
+    background-color: $bg-danger-light;
+    cursor: not-allowed;
   }
 }
 
