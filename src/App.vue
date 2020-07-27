@@ -27,6 +27,8 @@ export default {
       this.title = data.title;
       setTimeout(() => {
         this.type = "";
+        this.message = "";
+        this.title = "";
       }, 3000);
     },
   },

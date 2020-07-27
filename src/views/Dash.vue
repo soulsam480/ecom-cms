@@ -8,6 +8,7 @@
             <h4>Dashboard</h4>
             <span class="attention"></span>
             <br />
+            <Modal />
             <br />
           </div>
           <router-view></router-view>
@@ -23,6 +24,7 @@
 <script>
 import { auth } from "../firebase";
 import Sidebar from "@/components/Sidebar.vue";
+import Modal from "@/components/Modal.vue";
 import { mapGetters } from "vuex";
 export default {
   name: "Dash",
@@ -41,6 +43,7 @@ export default {
   },
   components: {
     Sidebar,
+    Modal,
   },
 };
 </script>

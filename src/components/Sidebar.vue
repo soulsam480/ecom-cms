@@ -89,7 +89,7 @@ export default {
   display: none;
   top: 0px;
   right: 0px;
-  position: absolute;
+  position: fixed;
   z-index: 10000;
   font-size: 30px;
   cursor: pointer;

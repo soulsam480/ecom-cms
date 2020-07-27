@@ -18,7 +18,7 @@ $bg-success-secondary: #43b943;
 //styles go here
 :root,
 #app {
-  background-color: #232931;
+  background-color: $bg-primary;
   color: white;
   line-height: normal;
   font-family: Function Regular;
@@ -69,7 +69,7 @@ a {
   background: $bg-danger;
   border-radius: 2px;
   border: none;
-  padding: 7px 10px;
+  padding: 10px 20px;
   margin: 5px;
   color: $primary;
   display: inline-block;
@@ -184,5 +184,26 @@ input[type="password"] {
   to {
     transform: translate(-200px, 0);
     opacity: 0;
+  }
+}
+.modal-wrap {
+  top: 20%;
+  position: fixed;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+.v-modal {
+  position: relative;
+  background-color: #2222226b;
+  text-align: center;
+  padding: 10px;
+  border-radius: 2px;
+  width: 300px;
+  margin: 10px;
+  .modal-img img {
+    display: block;
+    margin: auto;
+    width: 50px;
   }
 }
