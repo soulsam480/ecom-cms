@@ -71,11 +71,9 @@ export default {
 }
 @media only screen and (max-width: 768px) {
   .sidebar {
-    /*     padding-top: 50px;
- */
     right: 0 !important;
     position: fixed !important;
-    z-index: 10000;
+    z-index: 1000;
     height: 100vh !important;
     width: 0 !important;
     transition: width 0.3s linear;
@@ -91,8 +89,8 @@ export default {
   display: none;
   top: 0px;
   right: 0px;
-  position: fixed;
-  z-index: 121000;
+  position: absolute;
+  z-index: 10000;
   font-size: 30px;
   cursor: pointer;
   padding: 0 10px 5px 10px;

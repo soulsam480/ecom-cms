@@ -7,7 +7,8 @@ $primary: #ffffff;
 $secondary: #4ecca3;
 $bg-danger: #da1a1a;
 $bg-danger-light: #cc1515;
-
+$bg-success: #63d363;
+$bg-success-secondary: #43b943;
 //fonts
 @font-face {
   font-family: Function Regular;
@@ -119,5 +120,69 @@ input[type="password"] {
   background-color: $bg-seconday !important;
   .e-btn {
     padding: 4px 10px;
+  }
+}
+
+.notification {
+  display: none;
+  position: absolute;
+  z-index: 20000 !important;
+  width: 300px;
+  top: 10px;
+  right: 30px;
+  border-radius: 2px;
+  animation: moveOpen 3s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  span {
+    display: block;
+    width: 100%;
+    padding: 10px;
+  }
+  .title {
+    border-radius: 2px;
+    font-size: 20px;
+  }
+}
+.suc {
+  display: block !important;
+  background-color: $bg-success;
+  .title {
+    background-color: $bg-success-secondary;
+  }
+}
+.err {
+  display: block !important;
+  background-color: $bg-danger;
+  .title {
+    background-color: $bg-danger-light;
+  }
+}
+@keyframes moveOpen {
+  from {
+    transform: translate(-100px, 0);
+    opacity: 0;
+  }
+  10% {
+    transform: translate(20px, 0);
+  }
+  12% {
+    transform: translate(22px, 0);
+  }
+  16% {
+    transform: translate(20px, 0);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(20px, 0);
+    opacity: 1;
+  }
+  85% {
+    transform: translate(25px, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-200px, 0);
+    opacity: 0;
   }
 }

@@ -8,6 +8,7 @@
             <h4>Dashboard</h4>
             <span class="attention"></span>
             <br />
+            <br />
           </div>
           <router-view></router-view>
         </div>
@@ -25,6 +26,9 @@ import Sidebar from "@/components/Sidebar.vue";
 import { mapGetters } from "vuex";
 export default {
   name: "Dash",
+  data() {
+    return {};
+  },
   computed: {
     ...mapGetters({ user: "user" }),
   },
@@ -41,7 +45,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .col-sm-10 {
   padding-top: 15px;
 }

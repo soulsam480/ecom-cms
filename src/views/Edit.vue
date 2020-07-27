@@ -278,6 +278,7 @@ export default {
       },
     };
   },
+  inject: ["showLog"],
   computed: {
     ...mapGetters({ products: "getProducts" }),
     product() {
@@ -305,7 +306,18 @@ export default {
           tags: tags,
         })
         .then(() => {
-          window.alert("updated successfully!");
+          this.showLog({
+            type: "suc",
+            message: "Updated Successfully!",
+            title: "Success",
+          });
+        })
+        .catch((err) => {
+          this.showLog({
+            type: "err",
+            message: err.message,
+            title: "Error",
+          });
         });
     },
     previewImage(event) {

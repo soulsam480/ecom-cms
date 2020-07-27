@@ -63,7 +63,18 @@ export default {
         })
         .then(() => {
           this.$store.dispatch("addMedia");
-          window.alert("Deleted Successfully !");
+          this.showLog({
+            type: "suc",
+            message: "Deleted Successfully! ",
+            title: "Success",
+          });
+        })
+        .catch((err) => {
+          this.showLog({
+            type: "err",
+            message: err.message,
+            title: "Error",
+          });
         });
     },
   },

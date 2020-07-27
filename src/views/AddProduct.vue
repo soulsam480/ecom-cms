@@ -286,6 +286,7 @@ export default {
     editor: Editor,
   },
   props: [],
+  inject: ["showLog"],
   data() {
     return {
       a: "",
@@ -309,19 +310,6 @@ export default {
   computed: {},
 
   methods: {
-    /*     editPost() {
-      console.log(this.editId);
-      (this.a = main.name),
-        (this.c = main.price),
-        (this.checkedSizes = main.sizes),
-        (this.checkedColors = main.colors),
-        (this.checkedCats = main.cats),
-        (this.picture = main.imgUrls),
-        (this.shortDes = main.shortDes);
-      this.tags = main.tags.join();
-      this.$refs.toastuiEditor.invoke("setHtml", `${main.desc}`);
-      const main = this.products.find((el) => el.id === this.editId);
-    }, */
     previewImage(event) {
       this.b =
         Math.random()
@@ -384,7 +372,11 @@ export default {
           time: stamp,
         })
         .then(() => {
-          window.alert("Product added Successfully.");
+          this.showLog({
+            type: "suc",
+            message: "Product Added Successfully!",
+            title: "Success",
+          });
           this.b = "";
           this.a = "";
           this.c = "";
@@ -396,8 +388,12 @@ export default {
           this.shortDes = "";
           this.tags = "";
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(err => {
+          this.showLog({
+            type: "err",
+            message: err.message,
+            title: "Error",
+          });
         });
     },
   },
