@@ -58,7 +58,8 @@ export default {
     },
     async removeProduct() {
       this.isModal = false;
-      db.ref(`/Products/${this.delId}`)
+      await db
+        .ref(`/Products/${this.delId}`)
         .remove()
         .then(async () => {
           await storageref
