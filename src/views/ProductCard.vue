@@ -78,6 +78,7 @@ export default {
               });
               this.delId = "";
               this.$store.dispatch("addData");
+              this.$store.dispatch("addMedia");
             })
             .catch((err) => {
               this.delId = "";

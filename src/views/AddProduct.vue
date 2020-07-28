@@ -380,15 +380,16 @@ export default {
           this.b = "";
           this.a = "";
           this.c = "";
-          this.checkedSizes = "";
-          this.checkedColors = "";
-          this.checkedCats = "";
+          this.checkedSizes = [];
+          this.checkedColors = [];
+          this.checkedCats = [];
           this.picture = "";
           this.postBody = "";
           this.shortDes = "";
           this.tags = "";
+          this.$store.dispatch("addMedia");
         })
-        .catch(err => {
+        .catch((err) => {
           this.showLog({
             type: "err",
             message: err.message,

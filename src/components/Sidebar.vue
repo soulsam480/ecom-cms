@@ -81,10 +81,11 @@ export default {
   .ham {
     display: block !important;
   }
-}
-.act-nav {
+  .act-nav {
   width: 80% !important;
 }
+}
+
 .ham {
   display: none;
   top: 0px;
