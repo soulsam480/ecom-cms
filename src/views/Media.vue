@@ -3,6 +3,8 @@
     <h4>Media</h4>
     <span class="attention"></span>
     <br />
+    <Modal :isModal="isModal" v-on:no="cancel" v-on:yes="deleteRef" />
+    <br />
     <button class="e-btn">Some Action</button>
     <hr style="background-color:#4ecca3" />
     <h5>All Products</h5>
@@ -26,7 +28,7 @@
         <button
           class="e-btn-danger"
           :disabled="isProduct(img[0])"
-          @click="deleteRef(img[0])"
+          @click="showModal(img[0])"
         >
           Delete
         </button>
@@ -38,6 +40,7 @@
 </template>
 
 <script>
+import Modal from "@/components/Modal.vue";
 import { mapGetters } from "vuex";
 import { storageref } from "../firebase";
 export default {
@@ -45,16 +48,33 @@ export default {
   computed: {
     ...mapGetters({ media: "getMedia", products: "getProducts" }),
   },
-  beforeCreate() {},
+  data() {
+    return {
+      delId: "",
+      isModal: false,
+    };
+  },
+  components: {
+    Modal,
+  },
+  inject: ["showLog"],
   methods: {
+    cancel() {
+      this.isModal = false;
+      this.delId = "";
+    },
+    showModal(id) {
+      this.delId = id;
+      this.isModal = true;
+    },
     isProduct(id) {
       if (this.products.find((el) => el.id === id)) {
         return true;
       }
     },
-    async deleteRef(id) {
+    async deleteRef() {
       await storageref
-        .ref(`/Products/${id}`)
+        .ref(`/Products/${this.delId}`)
         .listAll()
         .then((res) => {
           res.items.forEach((el) => {

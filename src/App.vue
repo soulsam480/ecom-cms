@@ -29,7 +29,7 @@ export default {
         this.type = "";
         this.message = "";
         this.title = "";
-      }, 3000);
+      }, 4000);
     },
   },
   provide() {

@@ -3,6 +3,7 @@
     <h5>Manage Existing Products</h5>
     <span class="attention"></span>
     <br />
+    <Modal :isModal="isModal" v-on:no="cancel" v-on:yes="removeProduct" />
     <div class="row">
       <div class="col-sm-2 p-1" v-for="item in products" :key="item.id">
         <div class="card">
@@ -15,16 +16,10 @@
               >
                 Edit
               </router-link>
-              <button class="e-btn" @click="removeProduct(item.id)">
+              <button class="e-btn" @click="showModal(item.id)">
                 Remove
               </button>
             </div>
-            <!-- <button
-                  class="btn btn-success btn-sm"
-                  @click="updateProduct(item.id)"
-                >
-                  Save
-                </button> -->
           </div>
         </div>
       </div>
@@ -33,24 +28,41 @@
 </template>
 
 <script>
+import Modal from "@/components/Modal.vue";
 import { db, storageref } from "../firebase";
 import { mapGetters } from "vuex";
 export default {
   name: "AllProducts",
   props: [],
   data() {
-    return {};
+    return {
+      delId: "",
+      isModal: false,
+    };
   },
+  components: {
+    Modal,
+  },
+  inject: ["showLog"],
   computed: {
     ...mapGetters({ products: "getProducts" }),
   },
   methods: {
-    async removeProduct(id) {
-      db.ref(`/Products/${id}`)
+    cancel() {
+      this.isModal = false;
+      this.delId = "";
+    },
+    showModal(id) {
+      this.delId = id;
+      this.isModal = true;
+    },
+    async removeProduct() {
+      this.isModal = false;
+      db.ref(`/Products/${this.delId}`)
         .remove()
         .then(async () => {
           await storageref
-            .ref(`/Products/${id}`)
+            .ref(`/Products/${this.delId}`)
             .listAll()
             .then((res) => {
               res.items.forEach((el) => {
@@ -58,8 +70,21 @@ export default {
               });
             })
             .then(() => {
+              this.showLog({
+                type: "suc",
+                message: "Updated Successfully!",
+                title: "Success",
+              });
+              this.delId = "";
               this.$store.dispatch("addData");
-              window.alert("Product deleted successfully!");
+            })
+            .catch((err) => {
+              this.delId = "";
+              this.showLog({
+                type: "err",
+                message: err.message,
+                title: "Error",
+              });
             });
         });
     },
