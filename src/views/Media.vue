@@ -2,7 +2,6 @@
   <div class="content">
     <h4>Media</h4>
     <span class="attention"></span>
-    <br />
     <Modal :isModal="isModal" v-on:no="cancel" v-on:yes="deleteRef" />
     <br />
     <button class="e-btn">Some Action</button>

@@ -24,6 +24,9 @@
       <li :class="{ act: sideBar === 'media' }" @click="changeSide('media')">
         <router-link to="/dash/media">Media</router-link>
       </li>
+      <li :class="{ act: sideBar === 'order' }" @click="changeSide('order')">
+        <router-link to="/dash/order">Orders</router-link>
+      </li>
       <li
         :class="{ act: sideBar === 'categories' }"
         @click="changeSide('categories')"
@@ -82,8 +85,8 @@ export default {
     display: block !important;
   }
   .act-nav {
-  width: 80% !important;
-}
+    width: 80% !important;
+  }
 }
 
 .ham {

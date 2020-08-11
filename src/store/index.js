@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import { vuexfireMutations, firebaseAction } from "vuexfire";
 import { db, storageref } from "../firebase";
+import { createIndex } from "../plugins/indexGen";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -16,6 +17,7 @@ export default new Vuex.Store({
     authCred: {
       uid: "lSC134A31NZqjxaEtGvaKfG0PTA3",
     },
+    orders: [],
   },
   mutations: {
     ...vuexfireMutations,
@@ -58,6 +60,13 @@ export default new Vuex.Store({
           console.log(error);
         });
     },
+    addOrders: (state) => {
+      const orderRef = db.ref("/Orders");
+      orderRef.on("value", (res) => {
+        const data = res.val();
+        state.orders = createIndex(data);
+      });
+    },
   },
   actions: {
     addMedia: ({ commit }) => {
@@ -66,6 +75,7 @@ export default new Vuex.Store({
     addData: firebaseAction(({ bindFirebaseRef }) => {
       return bindFirebaseRef("products", db.ref("/Products"));
     }),
+
     changeAuth(context) {
       context.commit("cAuth");
     },
@@ -100,6 +110,9 @@ export default new Vuex.Store({
     },
     getMedia: (state) => {
       return state.media;
+    },
+    getOrders: (state) => {
+      return state.orders;
     },
   },
   modules: {},
