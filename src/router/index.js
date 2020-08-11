@@ -52,6 +52,11 @@ const routes = [
         name: "Media",
         component: () => import("../views/Media.vue"),
       },
+      {
+        path: "order",
+        name: "Order",
+        component: () => import("../views/Order.vue"),
+      },
     ],
     async beforeEnter(to, from, next) {
       let loggedIn = await auth.currentUser;

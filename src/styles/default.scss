@@ -9,6 +9,7 @@ $bg-danger: #da1a1a;
 $bg-danger-light: #cc1515;
 $bg-success: #63d363;
 $bg-success-secondary: #43b943;
+
 //fonts
 @font-face {
   font-family: Function Regular;
@@ -227,4 +228,24 @@ input[type="password"] {
     margin: auto;
     width: 50px;
   }
+}
+.pend {
+  color: $bg-danger;
+  font-weight: bold;
+  font-size: 19px;
+}
+.proc {
+  color: orange;
+  font-weight: bold;
+  font-size: 19px;
+}
+.ship {
+  color: blue;
+  font-weight: bold;
+  font-size: 19px;
+}
+.comp {
+  color: green;
+  font-weight: bold;
+  font-size: 19px;
 }

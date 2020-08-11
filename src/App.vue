@@ -12,6 +12,7 @@ export default {
   beforeCreate() {
     this.$store.dispatch("addData");
     this.$store.dispatch("addMedia");
+    this.$store.commit("addOrders");
   },
   data() {
     return {
