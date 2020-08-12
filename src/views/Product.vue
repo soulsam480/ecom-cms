@@ -5,10 +5,20 @@
     <br />
     <!--Functions-->
     <div>
-      <router-link class="e-btn" :to="{ name: 'Add' }">Add Product</router-link>
-      <router-link class="e-btn" :to="{ name: 'All' }"
-        >Manage Existing</router-link
+      <button
+        class="e-btn"
+        @click="does = 'manage'"
+        :class="{ btn_act: does === 'manage' }"
       >
+        <router-link :to="{ name: 'All' }">Manage Existing</router-link>
+      </button>
+      <button
+        class="e-btn"
+        @click="does = 'add'"
+        :class="{ btn_act: does === 'add' }"
+      >
+        <router-link :to="{ name: 'Add' }">Add Product</router-link>
+      </button>
     </div>
     <hr style="background-color:#4ecca3" />
     <!--implementations-->
@@ -26,13 +36,13 @@ export default {
     return {
       task: "",
       id: "",
+      does: "manage",
     };
   },
   methods: {
     editPost(id) {
       this.id = id;
       this.task = "add";
-      console.log("yoyo");
     },
   },
   computed: {
@@ -42,4 +52,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+a {
+  color: unset;
+}
+</style>

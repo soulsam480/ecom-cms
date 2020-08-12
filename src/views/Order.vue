@@ -28,11 +28,40 @@
           <b style="color:#4ecca3;"> ₹ {{ orderDetail.amount }}</b></span
         >
       </h5>
-
+      <div class="dropdown">
+        <button
+          class="e-btn dropdown-toggle"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Change Status
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" @click="changeStatus('Pending')">Pending</a>
+          <a class="dropdown-item" @click="changeStatus('Processing')"
+            >Processing</a
+          >
+          <a class="dropdown-item" @click="changeStatus('Shipped')">Shipped</a>
+          <a class="dropdown-item" @click="changeStatus('Completed')"
+            >Completed</a
+          >
+          <a class="dropdown-item" @click="changeStatus('Cancelled')"
+            >Cancelled</a
+          >
+          <a class="dropdown-item" @click="changeStatus('Failed')">Failed</a>
+        </div>
+      </div>
+      <button class="e-btn">Send Invoice</button>
+      <button class="e-btn">Send Status</button>
+      <button class="e-btn">Send Invoice</button>
       <hr style="background-color:#4ecca3" />
 
       <div class="row ">
         <div class="col-sm-5">
+          <h5>Order Products</h5>
+          <hr style="background-color:#4ecca3" />
           <div class="row a ">
             <div class="col-sm-12" v-for="p in orderDetail.cart" :key="p.id">
               <div class="row a">
@@ -104,7 +133,7 @@
       </h5>
       <button
         class="e-btn"
-        :class="{ act: statType === 'Pending' }"
+        :class="{ btn_act: statType === 'Pending' }"
         @click="statType = 'Pending'"
       >
         Pending
@@ -112,35 +141,35 @@
       </button>
       <button
         class="e-btn"
-        :class="{ act: statType === 'Processing' }"
+        :class="{ btn_act: statType === 'Processing' }"
         @click="statType = 'Processing'"
       >
         Processing <span v-if="statType === 'Processing'">/ {{ oCount }} </span>
       </button>
       <button
         class="e-btn"
-        :class="{ act: statType === 'Shipped' }"
+        :class="{ btn_act: statType === 'Shipped' }"
         @click="statType = 'Shipped'"
       >
         Shipped <span v-if="statType === 'Shipped'">/ {{ oCount }} </span>
       </button>
       <button
         class="e-btn"
-        :class="{ act: statType === 'Completed' }"
+        :class="{ btn_act: statType === 'Completed' }"
         @click="statType = 'Completed'"
       >
         Completed <span v-if="statType === 'Completed'">/ {{ oCount }} </span>
       </button>
       <button
         class="e-btn"
-        :class="{ act: statType === 'Cancelled' }"
+        :class="{ btn_act: statType === 'Cancelled' }"
         @click="statType = 'Cancelled'"
       >
         Cancelled <span v-if="statType === 'Cancelled'">/ {{ oCount }} </span>
       </button>
       <button
         class="e-btn"
-        :class="{ act: statType === 'Failed' }"
+        :class="{ btn_act: statType === 'Failed' }"
         @click="statType = 'Failed'"
       >
         Failed <span v-if="statType === 'Failed'">/ {{ oCount }}</span>
@@ -150,7 +179,7 @@
       <div class="row">
         <div class="col-sm-3 p-1" v-for="order in orders" :key="order.orderId">
           <router-link
-            :to="{ path: '/dash/order/', query: { order_id: order.orderId } }"
+            :to="{ name: 'Order', query: { order_id: order.orderId } }"
           >
             <div class="card">
               <h6 class="card-header">
@@ -174,7 +203,15 @@
 <script>
 import Modal from "@/components/Modal.vue";
 import { mapGetters } from "vuex";
-
+import { db } from "../firebase/index";
+import NProgress from "f:/MY CODEBASE/ecom-test/node_modules/nprogress";
+NProgress.configure({
+  showSpinner: false,
+  trickleSpeed: 200,
+  easing: "ease",
+  speed: 500,
+});
+import "nprogress/nprogress.css";
 export default {
   name: "Order",
   inject: ["showLog"],
@@ -182,7 +219,7 @@ export default {
     Modal,
   },
   computed: {
-    ...mapGetters({ raw: "getOrders" }),
+    ...mapGetters({ raw: "getOrders", user: "user" }),
     orders() {
       return this.raw.filter((el) => el.status === this.statType);
     },
@@ -210,7 +247,30 @@ export default {
     showModal() {
       this.isModal = true;
     },
-    changeStatus() {},
+    async changeStatus(status) {
+      NProgress.start();
+      NProgress.set(0.1);
+      NProgress.inc(0.2);
+      console.log(this.user.data.userId);
+      const date = this.orderDetail.placedOn.replace("th", "").split(" ");
+      await db
+        .ref(
+          `/Orders/${date[2]}_${date[1]}_${date[0]}/${this.orderDetail.orderId}/status`
+        )
+        .set(status)
+        .then(async () => {
+          await db
+            .ref(
+              `Users/${this.orderDetail.user.uid}/orders/${this.orderDetail.orderId}/status`
+            )
+            .set(status)
+            .then(() => {
+              console.log("yoyo");
+              setTimeout(() => NProgress.done(), 2000);
+            })
+            .catch((err) => console.log(err));
+        });
+    },
   },
 };
 </script>
@@ -222,17 +282,7 @@ export default {
 .row {
   padding: 0 15px 0 15px;
 }
-.act::after {
-  content: " ";
-  position: absolute;
-  display: block;
-  text-align: center;
-  background-color: #4ecca3;
-  height: 30px;
-  width: 1px;
-  margin-left: -24px;
-  margin-top: -24px;
-}
+
 a {
   color: unset;
 }

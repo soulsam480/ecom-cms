@@ -9,8 +9,16 @@ import { auth } from "./firebase";
 
 //firebase auth fires each time the auth state is changed
 Vue.config.productionTip = false;
+const cred = store.getters.authCredGet.uid;
 auth.onAuthStateChanged((user) => {
-  store.dispatch("fetchUser", user);
+  if (user.uid === cred) {
+    store.dispatch("fetchUser", user);
+    store.dispatch("addData");
+    store.dispatch("addMedia");
+    store.commit("addOrders");
+  } else {
+    auth.signOut();
+  }
 });
 new Vue({
   router,
