@@ -265,10 +265,20 @@ export default {
             )
             .set(status)
             .then(() => {
-              console.log("yoyo");
+              this.showLog({
+                type: "suc",
+                message: "Status Updated!",
+                title: "Success",
+              });
               setTimeout(() => NProgress.done(), 2000);
             })
-            .catch((err) => console.log(err));
+            .catch(() =>
+              this.showLog({
+                type: "suc",
+                message: "Some Error Occured",
+                title: "Error",
+              })
+            );
         });
     },
   },
