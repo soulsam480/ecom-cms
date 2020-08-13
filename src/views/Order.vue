@@ -15,8 +15,20 @@
         >
         /
         <span
-          >Status: <b style="color:#4ecca3;">{{ orderDetail.status }}</b></span
-        >
+          >Status:
+          <span
+            :class="{
+              pend: orderDetail.status === 'Pending',
+              proc: orderDetail.status === 'Processing',
+              ship: orderDetail.status === 'Shipped',
+              comp: orderDetail.status === 'Completed',
+              can: orderDetail.status === 'Cancelled',
+              fail: orderDetail.status === 'Failed',
+            }"
+          >
+            {{ orderDetail.status }}</span
+          >
+        </span>
         /
         <span
           >Placed On:
@@ -127,8 +139,18 @@
     </div>
     <!-- Order Details div ends here!!! -->
     <div v-else>
+      <div>
+        <h5>Store Status</h5>
+        <span class="pend">Pending: {{ storeStatus.pending }} </span>
+        <span class="proc">Processing: {{ storeStatus.processing }} </span>
+        <span class="ship">Shipped: {{ storeStatus.shipped }} </span>
+        <span class="comp">Completed: {{ storeStatus.completed }} </span>
+        <span class="can">Cancelled: {{ storeStatus.cancelled }} </span>
+        <span class="fail">Failed: {{ storeStatus.failed }} </span>
+      </div>
+      <hr style="background-color:#4ecca3" />
       <h5>
-        Filter by Status //
+        Filter Orders by Status //
         <span style="color:#4ecca3;">Current: {{ statType }}</span>
       </h5>
       <button
@@ -184,7 +206,18 @@
             <div class="card">
               <h6 class="card-header">
                 ID: {{ order.orderId }} //
-                <span class="pend"> Stat: {{ order.status }}</span>
+                <span
+                  :class="{
+                    pend: order.status === 'Pending',
+                    proc: order.status === 'Processing',
+                    ship: order.status === 'Shipped',
+                    comp: order.status === 'Completed',
+                    can: order.status === 'Cancelled',
+                    fail: order.status === 'Failed',
+                  }"
+                >
+                  {{ order.status }}</span
+                >
               </h6>
               <div class="card-body">
                 <p>Placed On: {{ order.placedOn }}</p>
@@ -233,6 +266,22 @@ export default {
         return undefined;
       }
     },
+    storeStatus() {
+      let stat = {};
+      stat.pending = this.raw.filter((el) => el.status === "Pending").length;
+      stat.processing = this.raw.filter(
+        (el) => el.status === "Processing"
+      ).length;
+      stat.shipped = this.raw.filter((el) => el.status === "Shipped").length;
+      stat.completed = this.raw.filter(
+        (el) => el.status === "Completed"
+      ).length;
+      stat.cancelled = this.raw.filter(
+        (el) => el.status === "Cancelled"
+      ).length;
+      stat.failed = this.raw.filter((el) => el.status === "Failed").length;
+      return stat;
+    },
   },
   data() {
     return {
@@ -251,7 +300,6 @@ export default {
       NProgress.start();
       NProgress.set(0.1);
       NProgress.inc(0.2);
-      console.log(this.user.data.userId);
       const date = this.orderDetail.placedOn.replace("th", "").split(" ");
       await db
         .ref(
