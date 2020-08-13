@@ -234,24 +234,52 @@ input[type="password"] {
   }
 }
 .pend {
-  color: $bg-danger;
-  font-weight: bold;
+  background-color: $bg-danger;
   font-size: 19px;
+  padding: 5px;
+  border-radius: 2px;
+  margin: 2px;
+  display: inline-block;
+}
+.can {
+  background-color: rgb(250, 48, 48);
+  font-size: 19px;
+  padding: 5px;
+  border-radius: 2px;
+  margin: 2px;
+  display: inline-block;
+}
+.fail {
+  background-color: rgb(208, 18, 233);
+  font-size: 19px;
+  padding: 5px;
+  border-radius: 2px;
+  margin: 2px;
+  display: inline-block;
 }
 .proc {
-  color: orange;
-  font-weight: bold;
+  background-color: rgb(250, 180, 51);
   font-size: 19px;
+  padding: 5px;
+  border-radius: 2px;
+  margin: 2px;
+  display: inline-block;
 }
 .ship {
-  color: blue;
-  font-weight: bold;
+  background-color: rgb(79, 79, 231);
   font-size: 19px;
+  padding: 5px;
+  border-radius: 2px;
+  margin: 2px;
+  display: inline-block;
 }
 .comp {
-  color: green;
-  font-weight: bold;
+  background-color: rgb(81, 219, 81);
   font-size: 19px;
+  padding: 5px;
+  border-radius: 2px;
+  margin: 2px;
+  display: inline-block;
 }
 .btn_act::after {
   content: " ";
