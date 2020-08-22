@@ -78,3 +78,19 @@ This CMS does almost all the basic stuff for now. A detailed list of all the fea
 
 - Sending Order status mails (Projected)
 - Sending invoices (Projected)
+- Category Management
+- Product Models and Classes management
+- Product Specs management
+
+I have these ideas for the project. If you wish to contribute please visit the contributing guide and open a pull request!
+
+### References
+
+- [Vuejs Docs](https://vuejs.org)
+- [Vue Router docs](https://router.vuejs.org)
+- [Vuex Docs](https://vuex.vuejs.org)
+- [Firebase Web Docs](https://firebase.google.com/docs/web/setup)
+
+Thank you. FOr any help or queries reach me
+
+🕊 [twitter](httpa://twitter.com/sambitsahoojs) / 📧 [mail](mailto:soulsam480@hotmail.com)
