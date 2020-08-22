@@ -93,4 +93,4 @@ I have these ideas for the project. If you wish to contribute please visit the c
 
 Thank you. FOr any help or queries reach me
 
-🕊 [twitter](httpa://twitter.com/sambitsahoojs) / 📧 [mail](mailto:soulsam480@hotmail.com)
+🕊 [twitter](https://twitter.com/sambitsahoojs) / 📧 [mail](mailto:soulsam480@hotmail.com)
