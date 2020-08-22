@@ -1,4 +1,6 @@
-//this sorting and push method is only for this project
+//TODO Deprecated
+//** this sorting and push method is only for this project
+
 const createIndex = (data) => {
   let i = 0;
   let arr = [];
