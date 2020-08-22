@@ -35,7 +35,7 @@ npm run serve
 
 The project dev server will run on localhost:8080
 
-### Project Structure
+### Structure
 
 ![File Structure](<https://raw.githubusercontent.com/soulsam480/my-static-assets/master/Screenshot%20(520).png>)
 
@@ -60,4 +60,37 @@ The project dev server will run on localhost:8080
 - babel config inside babel.config.js
 - Vue config inside vue.config.js
 
-##### This readme is not complete. Will be completed soon. For any queries reach me [here](mailto:soulsamm480@hotmail.com)
+### Features
+
+##### Current
+
+This CMS does almost all the basic stuff for now. A detailed list of all the features are
+
+- Complete Product Management
+  _ Add
+  _ Update \* Delete
+- Media Management \* Media view and Delete
+- Order Management
+  _ Order view
+  _ Order status Update \* Color-coded Order Status
+
+##### Projected
+
+- Sending Order status mails (Projected)
+- Sending invoices (Projected)
+- Category Management
+- Product Models and Classes management
+- Product Specs management
+
+I have these ideas for the project. If you wish to contribute please visit the contributing guide and open a pull request!
+
+### References
+
+- [Vuejs Docs](https://vuejs.org)
+- [Vue Router docs](https://router.vuejs.org)
+- [Vuex Docs](https://vuex.vuejs.org)
+- [Firebase Web Docs](https://firebase.google.com/docs/web/setup)
+
+Thank you. FOr any help or queries reach me
+
+🕊 [twitter](httpa://twitter.com/sambitsahoojs) / 📧 [mail](mailto:soulsam480@hotmail.com)
