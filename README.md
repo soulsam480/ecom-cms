@@ -2,6 +2,8 @@
 
 Open Source standalone CMS (Content Management System) project on top of [@vuejs](https://vuejs.org) for [@firebase](https://firebase.google.com) and [JAMstack](https://jamstack.org) powered e-commerce web apps.
 
+Status: [![Maintainability](https://api.codeclimate.com/v1/badges/120b86df5816a2a5f47f/maintainability)](https://codeclimate.com/github/soulsam480/ecom-cms/maintainability)
+
 For contributing to this project visit the [Contributing Guide](./CONTRIBUTING.md).
 
 We strictly follow the repo [Code of Conduct](./CODE_OF_CONDUCT.md).
