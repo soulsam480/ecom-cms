@@ -26,6 +26,7 @@ community include:
   and learning from the experience
 - Focusing on what is best not just for us as individuals, but for the
   overall community
+- All credentials of Firebase and database contents are under copyright of [Tiaamo.com](https://tiaamo.com).
 
 Examples of unacceptable behavior include:
 
@@ -37,6 +38,8 @@ Examples of unacceptable behavior include:
   address, without their explicit permission
 - Other conduct which could reasonably be considered inappropriate in a
   professional setting
+- Any sharing of Credentials and usage of Database contents without permission are to be considered as    illeagal activities and will result in Leagal actions. 
+- Sharing of Firebase admin login credentials i.e. User ID and Password and other secrets will be considered as illeagal activities and are punishable offence.
 
 ## Enforcement Responsibilities
 
@@ -61,7 +64,7 @@ representative at an online or offline event.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement at [sambit](mailto:soulsam480@hotmail.com).
+reported to the community leaders responsible for enforcement at [Mail](mailto:soulsam480@hotmail.com).
 All complaints will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the
