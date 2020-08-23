@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Notify :type="type" :message="message" :title="title" />
+    <!-- all the page/views will be rendered here -->
     <router-view />
   </div>
 </template>
