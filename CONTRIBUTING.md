@@ -4,7 +4,6 @@ Thanks for reaching out to contribute to this project. Please follow the below i
 
 ## Table of Contents
 
-- [How to Contribute](#how-to-contribute)
   - [Table of Contents](#table-of-contents)
   - [Types of contributions we're looking for](#types-of-contributions-were-looking-for)
   - [Ground rules & expectations](#ground-rules--expectations)
@@ -43,8 +42,14 @@ If you'd like to contribute, start by searching through the [issues](https://git
 
 If you don't see your idea listed, and you think it fits into the goals of this guide, do one of the following:
 
-- **If your contribution is minor,** such as a typo fix, open a pull request by creating a branch.
+- **If your contribution is minor,** such as a typo fix, open a pull request on your fork with a branch specifying the change.
+eg. here font-change is the name of branch which has the contributed code.
+```
+git push origin master:font-change
+``` 
 - **If your contribution is major,** such as a new guide, start by opening an issue first. That way, other people can weigh in on the discussion before you do any work.
+
+Then you can commit the changes through the method given above.
 
 ## Setting up your environment
 
@@ -52,10 +57,13 @@ This project runs on [Vuejs](https://vuejs.org). So follow the below instruction
 
 For any issues please reach me [here](mailto:soulsam480@hotmail.com)
 
-To get started open your terminal and run
+Fork [ecom-cms](https://github.com/soulsam480/ecom-cms)
+
+Open your terminal and run
 
 ```
-git clone git@github.com:soulsam480/ecom-cms.git
+git clone https://github.com/your_user_name/ecom-cms.git
+git remote add upstream https://github.com/soulsam480/ecom-cms.git
 cd ecom-cms
 npm install
 ```
