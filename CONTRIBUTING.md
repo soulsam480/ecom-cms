@@ -50,6 +50,8 @@ This project runs on [Vuejs](https://vuejs.org). So follow the below instruction
 
 For any issues please reach me [here](mailto:soulsam480@hotmail.com)
 
+To get started open your terminal and run
+
 ```
 git clone git@github.com:soulsam480/ecom-cms.git
 cd ecom-cms
@@ -74,7 +76,7 @@ const config = {
 
 ```
 
-then
+then run
 
 ```
 npm run serve
