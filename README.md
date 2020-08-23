@@ -2,12 +2,12 @@
 
 Open Source standalone CMS (Content Management System) project on top of [@vuejs](https://vuejs.org) for [@firebase](https://firebase.google.com) and [JAMstack](https://jamstack.org) powered e-commerce web apps.
 
-Info: [![Maintainability](https://api.codeclimate.com/v1/badges/120b86df5816a2a5f47f/maintainability)](https://codeclimate.com/github/soulsam480/ecom-cms/maintainability)
+INFO: [![Maintainability](https://api.codeclimate.com/v1/badges/120b86df5816a2a5f47f/maintainability)](https://codeclimate.com/github/soulsam480/ecom-cms/maintainability)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/soulsam480/ecom-cms/issues)
-[![HitCount](http://hits.dwyl.com/soulsam480/ecom-cms.svg)](http://hits.dwyl.com/soulsam480/ecom-cms)
 [![Known Vulnerabilities](https://snyk.io/test/github/soulsam480/ecom-cms/badge.svg?targetFile=package.json)](https://snyk.io/test/github/soulsam480/ecom-cms?targetFile=package.json)
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/soulsam480/ecom-cms/blob/master/LICENSE.md)
 [![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)](https://github.com/soulsam480/ecom-cms/graphs/contributors)
+
 For contributing to this project visit the [Contributing Guide](./CONTRIBUTING.md).
 
 We strictly follow the repo [Code of Conduct](./CODE_OF_CONDUCT.md).
