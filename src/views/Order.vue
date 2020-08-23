@@ -237,7 +237,7 @@
 import Modal from "@/components/Modal.vue";
 import { mapGetters } from "vuex";
 import { db } from "../firebase/index";
-import NProgress from "f:/MY CODEBASE/ecom-test/node_modules/nprogress";
+import NProgress from "nprogress";
 NProgress.configure({
   showSpinner: false,
   trickleSpeed: 200,

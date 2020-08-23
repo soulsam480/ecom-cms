@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Dash from "../views/Dash.vue";
 import Login from "../views/Login.vue";
-import NProgress from "f:/MY CODEBASE/ecom-test/node_modules/nprogress";
+import NProgress from "nprogress";
 import { auth } from "../firebase";
 NProgress.configure({
   showSpinner: false,
@@ -10,8 +10,8 @@ NProgress.configure({
   easing: "ease",
   speed: 500,
 });
-import "nprogress/nprogress.css";
-Vue.use(VueRouter);
+/* import "nprogress/nprogress.css";
+ */ Vue.use(VueRouter);
 
 const routes = [
   {
