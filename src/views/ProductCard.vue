@@ -6,7 +6,7 @@
     <Modal :isModal="isModal" v-on:no="cancel" v-on:yes="removeProduct" />
     <div class="row">
       <div class="col-sm-2 p-1" v-for="item in products" :key="item.id">
-        <div class="card">
+        <div class="card p-card">
           <p class="card-header">{{ item.name }}</p>
           <div class="card-body p-1">
             <div>

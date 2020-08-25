@@ -23,6 +23,7 @@ $bg-success-secondary: #43b943;
   color: white;
   line-height: normal;
   font-family: Source Sans Pro;
+  font-weight: 300;
 }
 a {
   color: unset;
@@ -114,17 +115,17 @@ input[type="password"] {
   background-color: $bg-seconday;
   border: none;
   color: white;
-  border-left:2px solid transparent;
+  border-left: 2px solid transparent;
   transition: border 0.5s ease;
   &:focus {
     background-color: $bg-seconday;
     outline: none !important;
     box-shadow: none;
     color: white;
-    border-color:#f3971b;
+    border-color: #f3971b;
   }
 }
-.card {
+.p-card {
   background-color: $bg-seconday !important;
   .e-btn {
     padding: 4px 10px;
@@ -315,54 +316,34 @@ input[type="password"] {
 /* Make clicks pass-through */
 #nprogress {
   pointer-events: none;
+  .bar {
+    background: #4ecca3;
+    position: fixed;
+    z-index: 1031;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+  }
+  .peg {
+    display: block;
+    position: absolute;
+    right: 0px;
+    width: 100px;
+    height: 100%;
+    box-shadow: 0 0 10px 1px #4ecca3, 0 0 5px 1px #4ecca3;
+    opacity: 1;
+
+    -webkit-transform: rotate(3deg) translate(0px, -4px);
+    -ms-transform: rotate(3deg) translate(0px, -4px);
+    transform: rotate(3deg) translate(0px, -4px);
+  }
 }
 
-#nprogress .bar {
-  background: #4ecca3;
-  position: fixed;
-  z-index: 1031;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-}
+#nprogress 
 
 /* Fancy blur effect */
-#nprogress .peg {
-  display: block;
-  position: absolute;
-  right: 0px;
-  width: 100px;
-  height: 100%;
-  box-shadow: 0 0 10px 1px #4ecca3, 0 0 5px 1px #4ecca3;
-  opacity: 1;
-
-  -webkit-transform: rotate(3deg) translate(0px, -4px);
-  -ms-transform: rotate(3deg) translate(0px, -4px);
-  transform: rotate(3deg) translate(0px, -4px);
-}
-
-/* Remove these to get rid of the spinner */
-#nprogress .spinner {
-  display: block;
-  position: fixed;
-  z-index: 1031;
-  top: 50%;
-  right: 50%;
-}
-
-#nprogress .spinner-icon {
-  width: 100px;
-  height: 100px;
-  box-sizing: border-box;
-  border: solid 2px transparent;
-  border-top-color: #4ecca3;
-  border-left-color: #4ecca3;
-  border-radius: 50%;
-
-  -webkit-animation: nprogress-spinner 400ms linear infinite;
-  animation: nprogress-spinner 400ms linear infinite;
-}
+#nprogress 
 
 .nprogress-custom-parent {
   overflow: hidden;

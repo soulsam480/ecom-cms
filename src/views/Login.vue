@@ -9,33 +9,34 @@
         <div class="col-md-4">
           <div class="card">
             <div class="card-body wow-bg">
-          <h5>Login</h5>
-          <span class="attention-1"></span>
-          <br />
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input
-              v-model="authId"
-              type="email"
-              class="form-control"
-              id="exampleInputEmail1"
-              placeholder="Enter email"
-              autofocus
-            />
-            <small class="text-muted"
-              >Hi Friend! Hacking is injurious to health. Don't try. Ok
-              Bye.</small>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input
-              v-model="authPass"
-              type="password"
-              class="form-control"
-              id="exampleInputPassword1"
-              placeholder="Password"
-              v-on:keyup.enter="Auth"
-            />
+              <h5>Login</h5>
+              <span class="attention-1"></span>
+              <br />
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input
+                  v-model="authId"
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  placeholder="Enter email"
+                  autofocus
+                />
+                <small class="text-muted"
+                  >Hi Friend! Hacking is injurious to health. Don't try. Ok
+                  Bye.</small
+                >
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input
+                  v-model="authPass"
+                  type="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  placeholder="Password"
+                  v-on:keyup.enter="Auth"
+                />
               </div>
               <button class="e-btn" @click="Auth()">Login</button>
             </div>
@@ -114,23 +115,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.col-md-4 h5{
+.col-md-4 h5 {
   text-align: center;
   text-transform: uppercase;
   position: relative;
-  letter-spacing:1.5px;
+  letter-spacing: 1.5px;
 }
-.attention-1{
-  &::before{
-  content: '';
-	position: absolute;
-	width:40px;
-	height: 2px;
-  left: 44%;
-  background-color: #4ecca3;
-}}
-.card{    
+.attention-1 {
+  &:before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    left: 44%;
+    background-color: #4ecca3;
+  }
+}
+.card {
   border: none;
   border-radius: 30px;
   background-color: #14edaa;
@@ -145,5 +146,4 @@ export default {
   width: 100px;
   border-radius: 2px;
 }
-
 </style>
