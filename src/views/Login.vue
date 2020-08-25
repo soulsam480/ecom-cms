@@ -10,7 +10,7 @@
           <div class="card">
             <div class="card-body wow-bg">
           <h5>Login</h5>
-          <span class="attention"></span>
+          <span class="attention-1"></span>
           <br />
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
@@ -114,9 +114,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .col-md-4 h5{
-  text-align :center;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  letter-spacing:1.5px;
 }
+.attention-1{
+  &::before{
+  content: '';
+	position: absolute;
+	width:40px;
+	height: 2px;
+  left: 44%;
+  background-color: #4ecca3;
+}}
 .card{    
   border: none;
   border-radius: 30px;
@@ -133,4 +146,5 @@ export default {
   width: 100px;
   border-radius: 2px;
 }
+
 </style>
