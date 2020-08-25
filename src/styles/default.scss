@@ -12,8 +12,8 @@ $bg-success-secondary: #43b943;
 
 //fonts
 @font-face {
-  font-family: Poppins Regular;
-  src: url(~@/assets/Poppins-Regular.otf);
+  font-family: Source Sans Pro;
+  src: url(~@/assets/SourceSansPro-Regular.otf);
 }
 
 //styles go here
@@ -22,7 +22,7 @@ $bg-success-secondary: #43b943;
   background-color: $bg-primary;
   color: white;
   line-height: normal;
-  font-family: Poppins Regular;
+  font-family: Source Sans Pro;
 }
 a {
   color: unset;
@@ -106,7 +106,6 @@ a {
     padding: 0.5px 30px;
     background-color: $secondary;
     position: absolute;
-    left: 42%;
   }
 }
 input[type="text"],
@@ -115,11 +114,14 @@ input[type="password"] {
   background-color: $bg-seconday;
   border: none;
   color: white;
+  border-left:2px solid transparent;
+  transition: border 0.5s ease;
   &:focus {
     background-color: $bg-seconday;
     outline: none !important;
     box-shadow: none;
     color: white;
+    border-color:#f3971b;
   }
 }
 .card {
