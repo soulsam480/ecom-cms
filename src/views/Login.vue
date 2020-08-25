@@ -7,6 +7,8 @@
     <div v-if="user.loggedIn !== true">
       <div class="row d-flex justify-content-center">
         <div class="col-md-4">
+          <div class="card">
+            <div class="card-body wow-bg">
           <h5>Login</h5>
           <span class="attention"></span>
           <br />
@@ -22,8 +24,7 @@
             />
             <small class="text-muted"
               >Hi Friend! Hacking is injurious to health. Don't try. Ok
-              Bye.</small
-            >
+              Bye.</small>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
@@ -40,6 +41,8 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
     <!--After the user logs in-->
     <div v-else>
       <div class="row d-flex justify-content-center">
@@ -111,6 +114,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.col-md-4 h5{
+  text-align :center;
+}
+.card{    
+  border: none;
+  border-radius: 30px;
+  background-color: #14edaa;
+}
+.wow-bg
+{
+  background-color: #141421;
+  border: 1px solid #2e2e4c;
+  border-radius: 10px;
+  margin-top: 4px;
+}
 .u-img {
   width: 100px;
   border-radius: 2px;
