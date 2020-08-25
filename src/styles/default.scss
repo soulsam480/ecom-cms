@@ -12,8 +12,8 @@ $bg-success-secondary: #43b943;
 
 //fonts
 @font-face {
-  font-family: Roboto Regular;
-  src: url(~@/assets/Roboto-Regular.ttf);
+  font-family: Poppins Regular;
+  src: url(~@/assets/Poppins-Regular.otf);
 }
 
 //styles go here
@@ -22,7 +22,7 @@ $bg-success-secondary: #43b943;
   background-color: $bg-primary;
   color: white;
   line-height: normal;
-  font-family: Roboto Regular;
+  font-family: Poppins Regular;
 }
 a {
   color: unset;
