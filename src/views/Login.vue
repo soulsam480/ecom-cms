@@ -1,4 +1,3 @@
-
 <template>
   <div class="login container">
     <br />
@@ -8,8 +7,8 @@
     <div v-if="user.loggedIn !== true">
       <div class="row d-flex justify-content-center">
         <div class="col-md-4">
-         <div class="card">
-            <div class="card-body wow-bg" id="formBg">
+          <div class="card">
+            <div class="card-body wow-bg">
           <h5>Login</h5>
           <span class="attention"></span>
           <br />
@@ -38,12 +37,12 @@
               v-on:keyup.enter="Auth"
             />
           </div>
-          <a class="e-btn" @click="Auth()">Login</a>
+          <button class="e-btn" @click="Auth()">Login</button>
         </div>
       </div>
     </div>
-    </div>
-    </div>
+  </div>
+</div>
     <!--After the user logs in-->
     <div v-else>
       <div class="row d-flex justify-content-center">
@@ -116,28 +115,20 @@ export default {
 
 <style lang="scss" scoped>
 .col-md-4 h5{
-  text-align:center;
+  text-align :center;
 }
-.form-group input{
-  transition: border .5s ease;
-  border-left:2px solid transparent;
+.card{    
+  border: none;
+  border-radius: 30px;
+  background-color: #14edaa;
 }
-.form-group input:focus{
-  border-color:#f3971b;
- }
- .card{    border: none;
-    border-radius: 30px;
-background-color: #14edaa;}
-
 .wow-bg
 {
-      background-color: #141421;
-    border: 1px solid #2e2e4c;
-    
+  background-color: #141421;
+  border: 1px solid #2e2e4c;
   border-radius: 10px;
   margin-top: 4px;
 }
-
 .u-img {
   width: 100px;
   border-radius: 2px;

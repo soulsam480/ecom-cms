@@ -12,8 +12,8 @@ $bg-success-secondary: #43b943;
 
 //fonts
 @font-face {
-  font-family: Poppins Regular;
-  src: url(~@/assets/Poppins-Regular.otf);
+  font-family: Roboto Regular;
+  src: url(~@/assets/Roboto-Regular.ttf);
 }
 
 //styles go here
@@ -22,7 +22,7 @@ $bg-success-secondary: #43b943;
   background-color: $bg-primary;
   color: white;
   line-height: normal;
-  font-family: Poppins Regular;
+  font-family: Roboto Regular;
 }
 a {
   color: unset;
@@ -33,47 +33,17 @@ a {
   }
 }
 
-a {
-  background: #262626;
-  border-radius: 5px;
-  color: #FFF;
+.e-btn {
+  background: $bg-seconday;
+  border-radius: 2px;
+  border: none;
   padding: 10px 20px;
   margin: 5px;
-  width: 100px;
-  transition: 0.5;
-  text-align: center;
-  overflow: hidden;
-  transition: .5s;
   color: $secondary;
   display: inline-block;
-  letter-spacing: 3px;
-  position: absolute;
-  z-index: 1;
-  &:before{
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    /*    background: #F00;*/
-    z-index: -1;
-    transition: 1s;
-    border-style: solid;
-    border-color: #F00;
-    border-width: 80px 100px;
-    transform: rotate(360deg);
-    transform-origin: top left
-}
-&:hover:before{
-  border-color: #00f;
-  transform: rotate(40deg);
-}
   &:hover {
-    color: #ff0;
-    transition: 0.5s;
-    transition-delay: 0.3s;
-    
+    color: $secondary;
+    background-color: $bg-seconday-light;
   }
   &:focus {
     outline: none;
@@ -91,7 +61,10 @@ a {
     background-color: $bg-seconday-light;
     cursor: not-allowed;
   }
-  
+  a {
+    display: block;
+    width: 100%;
+  }
 }
 
 .e-btn-sm {
@@ -130,12 +103,10 @@ a {
 .attention {
   &::before {
     content: "";
-    padding: 0.5px 25px;
+    padding: 0.5px 30px;
     background-color: $secondary;
     position: absolute;
-    left: 50%;
-    margin-left: -24px;
-
+    left: 42%;
   }
 }
 input[type="text"],
