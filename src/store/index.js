@@ -13,7 +13,6 @@ export default new Vuex.Store({
       loggedIn: false,
       data: null,
     },
-    auth: false,
     authCred: {
       uid: "lSC134A31NZqjxaEtGvaKfG0PTA3",
     },
@@ -21,9 +20,6 @@ export default new Vuex.Store({
   },
   mutations: {
     ...vuexfireMutations,
-    cAuth(state) {
-      state.auth = !state.auth;
-    },
     setLogIn(state, value) {
       state.user.loggedIn = value;
     },
@@ -75,10 +71,6 @@ export default new Vuex.Store({
     addData: firebaseAction(({ bindFirebaseRef }) => {
       return bindFirebaseRef("products", db.ref("/Products"));
     }),
-
-    changeAuth(context) {
-      context.commit("cAuth");
-    },
     fetchUser({ commit }, user) {
       commit("setLogIn", user !== null);
       if (user) {
@@ -98,9 +90,6 @@ export default new Vuex.Store({
   getters: {
     getProducts: (state) => {
       return state.products;
-    },
-    getAuth(state) {
-      return state.auth;
     },
     authCredGet(state) {
       return state.authCred;

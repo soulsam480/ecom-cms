@@ -57,6 +57,7 @@ export default {
     },
     async logOut() {
       await auth.signOut().then(() => {
+        this.$store.dispatch("fetchUser", null);
         router.replace({ path: "/" });
       });
     },
