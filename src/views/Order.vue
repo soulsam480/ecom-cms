@@ -138,9 +138,10 @@
       </div>
     </div>
     <!-- Order Details div ends here!!! -->
+    <!-- orders status div -->
     <div v-else>
       <div>
-        <h5>Store Status</h5>
+        <h5>Status</h5>
         <span class="pend">Pending: {{ storeStatus.pending }} </span>
         <span class="proc">Processing: {{ storeStatus.processing }} </span>
         <span class="ship">Shipped: {{ storeStatus.shipped }} </span>
@@ -203,7 +204,7 @@
           <router-link
             :to="{ name: 'Order', query: { order_id: order.orderId } }"
           >
-            <div class="card">
+            <div class="card p-card">
               <h6 class="card-header">
                 ID: {{ order.orderId }} //
                 <span

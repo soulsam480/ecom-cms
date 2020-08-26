@@ -171,7 +171,7 @@
             class="form-check-input"
             type="checkbox"
             id="inlineCheckbox8"
-            value="Men"
+            value="men-clothing"
             v-model="product.cats"
           />
           <label class="form-check-label" for="inlineCheckbox8">Men</label>
@@ -181,7 +181,7 @@
             class="form-check-input"
             type="checkbox"
             id="inlineCheckbox9"
-            value="Women"
+            value="women-clothing"
             v-model="product.cats"
           />
           <label class="form-check-label" for="inlineCheckbox9">Women</label>
