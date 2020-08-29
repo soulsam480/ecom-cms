@@ -5,7 +5,8 @@
     <ul class="sidebar" ref="mNav" @click="openNav">
       <li>
         <a>
-          <h5>Admin: {{ user.data.displayName.split(" ")[0] }}</h5>
+          <h5>Admin: None</h5>
+
           <div>
             <button @click="logOut" class="e-btn-danger">Logout</button>
           </div>
