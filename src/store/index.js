@@ -14,7 +14,7 @@ export default new Vuex.Store({
       data: null,
     },
     authCred: {
-      uid: "lSC134A31NZqjxaEtGvaKfG0PTA3",
+      uid: "9D8Wj4RaPEZvaoHb04U4RtGokqY2",
     },
     orders: [],
   },
