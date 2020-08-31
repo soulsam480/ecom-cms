@@ -32,7 +32,7 @@
         :class="{ act: sideBar === 'categories' }"
         @click="changeSide('categories')"
       >
-        <a>Categories</a>
+        <router-link to="/dash/cat">Categories</router-link>
       </li>
     </ul>
   </div>

@@ -57,6 +57,17 @@ const routes = [
         name: "Order",
         component: () => import("../views/Order.vue"),
       },
+      {
+        path: "cat",
+        name: "Cat",
+        component: () => import("../views/Cat.vue"),
+        children: [
+          {
+            path: ":_slug",
+            component: () => import("../views/ShowCat.vue"),
+          },
+        ],
+      },
     ],
     async beforeEnter(to, from, next) {
       let loggedIn = await auth.currentUser;
