@@ -15,7 +15,7 @@
       </div>
     </div>
     <div v-else class="text-center">
-      <h4>Please Log In to continue</h4>
+      <h4> Log In to continue</h4>
     </div>
   </div>
 </template>
