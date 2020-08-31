@@ -178,7 +178,7 @@
                 class="form-check-input"
                 type="checkbox"
                 id="inlineCheckbox8"
-                value="Men"
+                value="men-clothing"
                 v-model="checkedCats"
               />
               <label class="form-check-label" for="inlineCheckbox8">Men</label>
@@ -188,7 +188,7 @@
                 class="form-check-input"
                 type="checkbox"
                 id="inlineCheckbox9"
-                value="Women"
+                value="women-clothing"
                 v-model="checkedCats"
               />
               <label class="form-check-label" for="inlineCheckbox9"
@@ -231,7 +231,7 @@
               {{ uploadValue.toFixed() + "%" }}
               <progress id="progress" :value="uploadValue" max="100"></progress>
             </p>
-            <button class="e-btn" @click="onUpload()">
+            <button class="e-btn" @click.prevent="onUpload()">
               <!--           :disabled="!imageData"
             -->
               Upload Image

@@ -29,8 +29,8 @@ a {
   color: unset;
   text-decoration: none !important;
   &:hover {
-    color: unset;
-    text-decoration: none;
+    color: unset !important;
+    text-decoration: none !important;
   }
 }
 
@@ -63,8 +63,15 @@ a {
     cursor: not-allowed;
   }
   a {
-    display: block;
+    cursor: pointer;
+    color: $secondary;
+    text-decoration: none;
+    display: block !important;
     width: 100%;
+    &:hover {
+      color: $secondary;
+      text-decoration: none;
+    }
   }
 }
 
@@ -98,6 +105,17 @@ a {
   &:disabled {
     background-color: $bg-danger-light;
     cursor: not-allowed;
+  }
+  a {
+    cursor: pointer;
+    color: $primary;
+    text-decoration: none;
+    display: block !important;
+    width: 100%;
+    &:hover {
+      color: $primary;
+      text-decoration: none;
+    }
   }
 }
 

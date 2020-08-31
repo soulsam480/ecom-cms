@@ -46,6 +46,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@media only screen and(max-width:768px) {
+  .col-sm-10 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
 .col-sm-10 {
   padding-top: 15px;
 }
