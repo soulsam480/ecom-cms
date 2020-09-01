@@ -8,7 +8,9 @@
           <h5>Admin: None</h5>
 
           <div>
-            <button @click="logOut" class="e-btn-danger">Logout</button>
+            <button @click="logOut" class="e-btn-danger e-btn-sm">
+              Logout
+            </button>
           </div>
           <hr style="background-color:#4ecca3" />
         </a>
