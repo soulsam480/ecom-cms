@@ -15,6 +15,13 @@ $bg-success-secondary: #43b943;
   font-family: Source Sans Pro;
   src: url(~@/assets/SourceSansPro-Regular.otf);
 }
+//todo default styles
+
+button {
+  &:focus {
+    outline: none !important;
+  }
+}
 
 //styles go here
 :root,
@@ -388,4 +395,26 @@ input[type="password"] {
   100% {
     transform: rotate(360deg);
   }
+}
+
+// ** category modal custom
+.modal {
+  .modal-header,
+  .modal-footer,
+  .modal-body {
+    padding: 10px 16px;
+  }
+  .modal-header {
+    border: none;
+  }
+  .modal-footer {
+    border: none;
+  }
+  .custom-content {
+    background-color: $bg-primary !important;
+    box-shadow: 0 0 5px 0 #4ecca29d;
+  }
+}
+.modal-backdrop.show {
+  display: none;
 }

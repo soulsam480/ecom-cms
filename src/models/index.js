@@ -1,5 +1,0 @@
-//TODO Deprecated
-
-/* const Product =  () => {
-
-} */
