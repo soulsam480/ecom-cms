@@ -111,11 +111,17 @@ export default {
     };
   },
   methods: {
+    //todo Beta approach towards category addition/update
+    // ** method for adding categories
     async addCat() {
       if (this.catChild !== "") {
+        // ** only when category has sub categories
         var childObj = {};
+        // ** splitting into distinct subcategories
         const tempArray = this.catChild.split(",");
         tempArray.forEach((el) => {
+          // ** defining each sub category with the required properties
+          // ** sub category is assigned a key as it's name for better read and write ops
           childObj[el] = {
             name: el,
             children: {},
@@ -123,13 +129,15 @@ export default {
           };
         });
       } else {
+        // ** if there are no sub categories
         childObj = {};
       }
 
       if (this.catParent === "") {
+        // ** when no parent mostly for root categoris
         this.catParent = null;
       }
-
+      // ** creating a new category object
       const newcat = new Category(
         this.catName,
         { ...childObj },
@@ -138,18 +146,20 @@ export default {
 
       console.log(newcat);
       if (this.catParent) {
+        // ** write to db when sub category
         await db
           .ref(
             `/Universal/Categories/${this.catParent}/children/${newcat.name}`
           )
           .set(newcat)
           .then(() => {
-            console.log("yoyo for child");
+            console.log("child category added");
           })
           .catch((err) => {
             console.log(err.message);
           });
       } else {
+        // ** write to db when Parent category
         await db
           .ref(`/Universal/Categories/${this.catName}`)
           .set(newcat)
