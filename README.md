@@ -12,6 +12,8 @@ For contributing to this project visit the [Contributing Guide](./CONTRIBUTING.m
 
 We strictly follow the repo [Code of Conduct](./CODE_OF_CONDUCT.md).
 
+Project Changelogs are maintained [here](./changelogs.md)
+
 ### Setup
 
 ```
@@ -76,19 +78,22 @@ The project dev server will run on localhost:8080
 
 This CMS does almost all the basic stuff for now. A detailed list of all the features are
 
-- Complete Product Management
-  _ Add
-  _ Update \* Delete
-- Media Management \* Media view and Delete
+- Product Management
+  - Add
+  - Update 
+  - Delete
+- Media Management 
+  - Media view and Delete
 - Order Management
-  _ Order view
-  _ Order status Update \* Color-coded Order Status
+  - Order view
+  - Order status Update
+  - Color-coded Order Status
 
 ##### Projected
 
-- Sending Order status mails (Projected)
-- Sending invoices (Projected)
-- Category Management
+- Sending Order status mails 
+- Sending invoices
+- Category Management (in alpha) ([changelogs](./changelogs.md))
 - Product Models and Classes management
 - Product Specs management
 

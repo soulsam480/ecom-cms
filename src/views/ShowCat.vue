@@ -62,13 +62,11 @@ export default {
     },
     async removeProduct() {
       this.isModal = false;
-      const prod = this.products.find((el) => el.id === this.delId).cats;
-      prod.splice(
-        prod.findIndex((el) => el === "men-clothing"),
-        1
-      );
+      const updatedProd = this.products.find((el) => el.id === this.delId).cats;
+      updatedProd.splice(updatedProd.indexOf(this.$route.params._slug), 1);
+      console.log(updatedProd);
       db.ref(`/Products/${this.delId}/cats`)
-        .set(prod)
+        .set(updatedProd)
         .then(() => {
           this.showLog({
             type: "suc",
