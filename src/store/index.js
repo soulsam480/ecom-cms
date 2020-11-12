@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import { vuexfireMutations, firebaseAction } from "vuexfire";
-import { db, storageref } from "../firebase";
+import { db, storageref, mid } from "../firebase";
 import { createIndex } from "../plugins/indexGen";
 Vue.use(Vuex);
 
@@ -14,7 +14,7 @@ export default new Vuex.Store({
       data: null,
     },
     authCred: {
-      uid: "9D8Wj4RaPEZvaoHb04U4RtGokqY2",
+      uid: mid,
     },
     orders: [],
   },

@@ -11,3 +11,4 @@ const auth = firebase.auth();
 const productref = db.ref("/Products");
 const storageref = firebase.storage();
 export { db, auth, productref, storageref };
+export const mid = "zTkkKTbISkbzPTq9zzp7wXgVaYp2";

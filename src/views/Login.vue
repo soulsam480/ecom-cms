@@ -99,7 +99,7 @@ export default {
               this.authPass = "";
               this.$store.dispatch("fetchUser", null);
             });
-            window.alert("Bhag B*dk");
+            window.alert("ERROR");
           } else {
             this.authId = "";
             this.authPass = "";

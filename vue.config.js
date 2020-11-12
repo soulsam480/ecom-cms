@@ -4,6 +4,9 @@ module.exports = {
 
   // If deploying to custom domain on github pages set publicPath: '/'
   publicPath: "/",
+  devServer: {
+    port: 8082,
+  },
   productionSourceMap: false,
   css: {
     loaderOptions: {
